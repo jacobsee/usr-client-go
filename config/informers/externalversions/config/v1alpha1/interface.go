@@ -8,17 +8,17 @@ import (
 
 // Interface provides access to all the informers in this group version.
 type Interface interface {
-	// Backups returns a BackupInformer.
+	// Backups returns a TypedBackupInformer.
 	Backups() TypedBackupInformer
-	// CRIOCredentialProviderConfigs returns a CRIOCredentialProviderConfigInformer.
+	// CRIOCredentialProviderConfigs returns a TypedCRIOCredentialProviderConfigInformer.
 	CRIOCredentialProviderConfigs() TypedCRIOCredentialProviderConfigInformer
-	// ClusterMonitorings returns a ClusterMonitoringInformer.
+	// ClusterMonitorings returns a TypedClusterMonitoringInformer.
 	ClusterMonitorings() TypedClusterMonitoringInformer
-	// ControllerManagers returns a ControllerManagerInformer.
+	// ControllerManagers returns a TypedControllerManagerInformer.
 	ControllerManagers() TypedControllerManagerInformer
-	// InsightsDataGathers returns a InsightsDataGatherInformer.
+	// InsightsDataGathers returns a TypedInsightsDataGatherInformer.
 	InsightsDataGathers() TypedInsightsDataGatherInformer
-	// PKIs returns a PKIInformer.
+	// PKIs returns a TypedPKIInformer.
 	PKIs() TypedPKIInformer
 }
 

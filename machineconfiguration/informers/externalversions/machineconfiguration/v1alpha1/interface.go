@@ -8,9 +8,9 @@ import (
 
 // Interface provides access to all the informers in this group version.
 type Interface interface {
-	// InternalReleaseImages returns a InternalReleaseImageInformer.
+	// InternalReleaseImages returns a TypedInternalReleaseImageInformer.
 	InternalReleaseImages() TypedInternalReleaseImageInformer
-	// OSImageStreams returns a OSImageStreamInformer.
+	// OSImageStreams returns a TypedOSImageStreamInformer.
 	OSImageStreams() TypedOSImageStreamInformer
 }
 
