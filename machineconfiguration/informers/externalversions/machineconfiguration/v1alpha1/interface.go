@@ -8,9 +8,11 @@ import (
 
 // Interface provides access to all the informers in this group version.
 type Interface interface {
-	// InternalReleaseImages returns a InternalReleaseImageInformer.
+	// BGPVIPConfigs returns a TypedBGPVIPConfigInformer.
+	BGPVIPConfigs() TypedBGPVIPConfigInformer
+	// InternalReleaseImages returns a TypedInternalReleaseImageInformer.
 	InternalReleaseImages() TypedInternalReleaseImageInformer
-	// OSImageStreams returns a OSImageStreamInformer.
+	// OSImageStreams returns a TypedOSImageStreamInformer.
 	OSImageStreams() TypedOSImageStreamInformer
 }
 
@@ -23,6 +25,11 @@ type version struct {
 // New returns a new Interface.
 func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakListOptions internalinterfaces.TweakListOptionsFunc) Interface {
 	return &version{factory: f, namespace: namespace, tweakListOptions: tweakListOptions}
+}
+
+// BGPVIPConfigs returns a TypedBGPVIPConfigInformer.
+func (v *version) BGPVIPConfigs() TypedBGPVIPConfigInformer {
+	return &bGPVIPConfigInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
 }
 
 // InternalReleaseImages returns a TypedInternalReleaseImageInformer.
